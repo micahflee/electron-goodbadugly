@@ -2,12 +2,20 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
+    <title>Good, Bad, and Ugly</title>
 
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
+    <h1 class="mb-5">
+      <i class="fa-solid fa-face-smile"></i> good<br>
+      <i class="fa-solid fa-face-frown"></i> bad<br>
+      <i class="fa-solid fa-poo"></i> ugly
+    </h1>
+
     <p>Welcome to your Electron application.</p>
+    <p class="mt-5">
+      <button id="button" class="btn btn-primary btn-lg">click to pop calc</button>
+    </p>
     <script type="module" src="/src/renderer.ts"></script>
   </body>
 </html>
