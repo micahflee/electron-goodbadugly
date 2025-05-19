@@ -1,5 +1,7 @@
 # Good, Bad, and Ugly
 
+![the good, the bad, and the ugly](goodbadugly.png)
+
 I installed node.js in my Fedora qube [like this](https://nodejs.org/en/download):
 
 ```sh
