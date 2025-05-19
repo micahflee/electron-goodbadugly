@@ -42,6 +42,12 @@ npm warn deprecated glob@8.1.0: Glob versions prior to v9 are no longer supporte
 ✔ Installing template dependencies
 ```
 
+Make sure to install GNOME Calculator!
+
+```sh
+sudo dnf install gnome-calculator
+```
+
 `npm run` is sort of like Makefile. You can run the app like this:
 
 ```sh

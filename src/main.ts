@@ -1,5 +1,6 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'node:path';
+import { spawn } from 'child_process';
 
 const createWindow = () => {
   // Create the browser window.
@@ -20,6 +21,16 @@ const createWindow = () => {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
+
+  // Handle the popCalc event from the renderer process
+  ipcMain.handle('popCalc', async () => {
+    // spawn gnome-calculator
+    const calculator = spawn('gnome-calculator', {
+      detached: true,
+      stdio: 'ignore',
+    });
+    calculator.unref();
+  });
 };
 
 // This method will be called when Electron has finished

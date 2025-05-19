@@ -8,4 +8,10 @@ console.log('👋 This message is being logged by "renderer.ts", included via Vi
 
 document.getElementById('button')?.addEventListener('click', () => {
     console.log('Button clicked!');
+
+    // UGLY: typescript doesn't know about the electron global, and I don't know a good
+    // way to tell it about it without lots of duplicate code
+
+    // @ts-ignore
+    window.electron.popCalc();
 });
