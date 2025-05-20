@@ -1,6 +1,7 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'node:path';
 import { spawn } from 'child_process';
+import os from 'os';
 
 const createWindow = () => {
   // Create the browser window.
@@ -24,12 +25,21 @@ const createWindow = () => {
 
   // Handle the popCalc event from the renderer process
   ipcMain.handle('popCalc', async () => {
-    // spawn gnome-calculator
-    const calculator = spawn('gnome-calculator', {
-      detached: true,
-      stdio: 'ignore',
-    });
-    calculator.unref();
+    if (os.platform() == 'darwin') {
+      // spawn calculator in macOS
+      const calculator = spawn('open', ['-a', 'Calculator.app'], {
+        detached: true,
+        stdio: 'ignore',
+      });
+      calculator.unref();
+    } else {
+      // spawn calculator in Linux
+      const calculator = spawn('gnome-calculator', {
+        detached: true,
+        stdio: 'ignore',
+      });
+      calculator.unref();
+    }
   });
 };
 
